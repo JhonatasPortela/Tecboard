@@ -1,0 +1,19 @@
+.form-evento {
+  background-color: #212121;
+  border-radius: 16px;
+  padding: 32px 28px;
+  margin: 64px auto;
+  width: 384px;
+  max-width: 90%;
+}
+
+.camposDoFormulario {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.acoes {
+  margin-top: 32px;
+  text-align: center;
+}
