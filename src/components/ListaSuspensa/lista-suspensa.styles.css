@@ -10,10 +10,7 @@
 }
 
 .lista-suspensa:focus {
-  /* MUITO IMPORTANTE: Remove o contorno padrão do navegador */
   outline: none;
-
-  /* E APLICA SEU ESTILO CUSTOMIZADO */
-  border-color: #17e4b9; /* Exemplo: muda a borda para azul */
-  box-shadow: 0 0 0 3px rgba(5, 230, 230, 0.5); /* Adiciona um 'glow' customizado */
+  border-color: #17e4b9;
+  box-shadow: 0 0 0 3px rgba(5, 230, 230, 0.5);
 }
