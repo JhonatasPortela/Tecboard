@@ -21,7 +21,7 @@ const evento: EventoType = {
   data: new Date(),
   titulo: "Mulheres no Front",
   descricao:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "Valorizando e impulsionando a participação feminina no desenvolvimento front-end.",
 };
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
         <img src="/logo.png" alt="Logo" />
       </header>
       <Banner />
-      <FormularioDeEventos />
+      <FormularioDeEventos temas={TEMAS} />
       {TEMAS.map((tema) => (
         <section key={tema.id}>
           <Tema tema={tema} />

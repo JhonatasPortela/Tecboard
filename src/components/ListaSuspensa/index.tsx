@@ -1,11 +1,23 @@
+import type { TemaType } from "../../types/TemaType";
 import "./lista-suspensa.styles.css";
+import type { SelectHTMLAttributes } from "react";
 
-export function ListaSuspensa() {
+type SelectPropsNativas = SelectHTMLAttributes<HTMLSelectElement>;
+interface ListaSuspensaProps extends SelectPropsNativas {
+  items: TemaType[];
+}
+
+export function ListaSuspensa({ items, ...rest }: ListaSuspensaProps) {
   return (
-    <select className="lista-suspensa">
-      <option value="">Selecione uma opção</option>
-      <option value="">Selecione outra opção</option>
-      <option value="">Selecione mais uma opção</option>
+    <select {...rest} defaultValue="" className="lista-suspensa">
+      <option value="" disabled>
+        Selecione uma opção
+      </option>
+      {items.map((item) => (
+        <option key={item.id} value={item.id}>
+          {item.nome}
+        </option>
+      ))}
     </select>
   );
 }
