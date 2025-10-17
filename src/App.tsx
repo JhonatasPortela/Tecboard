@@ -5,6 +5,7 @@ import { Banner } from "./components/Banner";
 import { CardEvento } from "./components/CardEvento";
 import type { TemaType } from "./types/TemaType";
 import type { EventoType } from "./types/EventoType";
+import { useState } from "react";
 
 const TEMAS: TemaType[] = [
   { id: 1, nome: "front-end" },
@@ -15,27 +16,35 @@ const TEMAS: TemaType[] = [
   { id: 6, nome: "cloud" },
 ];
 
-const evento: EventoType = {
-  img: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
-  badge: TEMAS[0].nome,
-  data: new Date(),
-  titulo: "Mulheres no Front",
-  descricao:
-    "Valorizando e impulsionando a participação feminina no desenvolvimento front-end.",
-};
-
 function App() {
+  const [eventos, setEventos] = useState<EventoType[]>([
+    {
+      img: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
+      badge: TEMAS[0].nome,
+      data: new Date(),
+      titulo: "Mulheres no Front",
+      descricao:
+        "Valorizando e impulsionando a participação feminina no desenvolvimento front-end.",
+    },
+  ]);
+
+  function adicionarEvento(evento: EventoType) {
+    setEventos([...eventos, evento]);
+  }
+
   return (
     <main>
       <header>
         <img src="/logo.png" alt="Logo" />
       </header>
       <Banner />
-      <FormularioDeEventos temas={TEMAS} />
+      <FormularioDeEventos temas={TEMAS} aoSubmeter={adicionarEvento} />
       {TEMAS.map((tema) => (
         <section key={tema.id}>
           <Tema tema={tema} />
-          <CardEvento evento={evento} />
+          {eventos.map((evento, index) => (
+            <CardEvento evento={evento} key={index} />
+          ))}
         </section>
       ))}
     </main>
