@@ -21,6 +21,10 @@ export function FormularioDeEventos({
   function aoSubmit(formData: FormData) {
     console.log("fiz um submit");
     const novoEvento: EventoType = {
+      tema: temas.find(
+        (tema) =>
+          tema.id.toString() === formData.get("temaDoEvento")?.toString()
+      )!,
       img: formData.get("capa")?.toString() || "",
       titulo: formData.get("nomeDoEvento")?.toString() || "",
       data: new Date(

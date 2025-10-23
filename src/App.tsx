@@ -19,6 +19,7 @@ const TEMAS: TemaType[] = [
 function App() {
   const [eventos, setEventos] = useState<EventoType[]>([
     {
+      tema: TEMAS[0],
       img: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
       badge: TEMAS[0].nome,
       data: new Date(),
@@ -39,14 +40,20 @@ function App() {
       </header>
       <Banner />
       <FormularioDeEventos temas={TEMAS} aoSubmeter={adicionarEvento} />
-      {TEMAS.map((tema) => (
-        <section key={tema.id}>
-          <Tema tema={tema} />
-          {eventos.map((evento, index) => (
-            <CardEvento evento={evento} key={index} />
-          ))}
-        </section>
-      ))}
+      <section className="container">
+        {TEMAS.map((tema) => (
+          <section key={tema.id}>
+            <Tema tema={tema} />
+            <div className="eventos">
+              {eventos
+                .filter((evento) => evento.tema.id === tema.id)
+                .map((evento, index) => (
+                  <CardEvento evento={evento} key={index} />
+                ))}
+            </div>
+          </section>
+        ))}
+      </section>
     </main>
   );
 }
