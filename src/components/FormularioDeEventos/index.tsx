@@ -30,11 +30,6 @@ export function FormularioDeEventos({
       data: new Date(
         formData.get("dataDoEvento")?.toString() + "T12:00:00" || ""
       ),
-      badge:
-        temas.find(
-          (tema) =>
-            tema.id.toString() === formData.get("temaDoEvento")?.toString()
-        )?.nome || "",
       descricao: formData.get("descricao")?.toString() || "",
     };
 

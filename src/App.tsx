@@ -20,12 +20,10 @@ function App() {
   const [eventos, setEventos] = useState<EventoType[]>([
     {
       tema: TEMAS[0],
-      img: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
-      badge: TEMAS[0].nome,
-      data: new Date(),
-      titulo: "Mulheres no Front",
-      descricao:
-        "Valorizando e impulsionando a participação feminina no desenvolvimento front-end.",
+      img: "https://codingweek.org/wp-content/uploads/2023/09/chris-ried-ieic5Tq8YMk-unsplash-1536x1025.jpg",
+      data: new Date(2025, 9, 31),
+      titulo: "Front do front",
+      descricao: "aushaushasuahsuashaush",
     },
   ]);
 
