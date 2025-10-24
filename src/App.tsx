@@ -39,7 +39,9 @@ function App() {
       <Banner />
       <FormularioDeEventos temas={TEMAS} aoSubmeter={adicionarEvento} />
       <section className="container">
-        {TEMAS.map((tema) => (
+        {TEMAS.filter((tema) =>
+          eventos.some((evento) => evento.tema.id === tema.id)
+        ).map((tema) => (
           <section key={tema.id}>
             <Tema tema={tema} />
             <div className="eventos">
